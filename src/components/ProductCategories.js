@@ -1,41 +1,29 @@
+import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Image from 'react-bootstrap/Image';
 
 function ProductCategories() {
   return (
-    <Container>
+    <Container fluid="true">
       <Row>
         <Col>
-            <img 
-            src={require("../images/foundation.jpg")}
-            width="500"
-            />
-        </Col>
-        <Col>
-        <img 
+            <Image 
             src={require("../images/blusher.jpg")}
-            width="500"
+            width="400"
             />
         </Col>
-      </Row>
-      <Row>
         <Col>
-            <img 
+            <Image 
             src={require("../images/eyeshadow.jpg")}
-            width="500"
+            width="400"
             />
         </Col>
         <Col>
-        <img 
+            <Image 
             src={require("../images/lipstick.jpg")}
-            width="500"
-            />
-        </Col>
-        <Col>
-        <img 
-            src={require("../images/nailpolish.jpg")}
-            width="500"
+            width="400"
             />
         </Col>
       </Row>
