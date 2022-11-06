@@ -20,11 +20,18 @@ function ItemSearchForm(props) {
 
     return (
         <Form className="d-flex">
+            <Form.Label>Search</Form.Label>
+            <Form.Select aria-label="Default select example">
+                <option>Choose a category</option>
+                <option value="product-name">Product name</option>
+                <option value="product-type">Product type</option>
+                <option value="product-brand">Product brand</option>
+            </Form.Select>
             <Form.Control
             value={formInput}
             onChange={handleInput}
             type="search"
-            placeholder="Search"
+            placeholder="e.g. lipstick"
             className="me-2"
             aria-label="Search"
             />
