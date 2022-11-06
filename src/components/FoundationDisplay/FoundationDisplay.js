@@ -1,7 +1,14 @@
 import React from 'react';
 
-function FaceMakeupCategories() {
+function FoundationDisplay() {
 
+  const makeFoundationAPICall = async () => {
+    const foundationUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${val}&limit=10`
+    console.log(foundationUrl);
+    const foundationResult = await fetch(foundationUrl)
+    const foundationJson = await foundationResult.json();
+    console.log(foundationJson);
+  }
 
 
     return (
@@ -39,4 +46,4 @@ function FaceMakeupCategories() {
     );
   }
   
-  export default FaceMakeupDisplay;
+  export default FoundationDisplay;

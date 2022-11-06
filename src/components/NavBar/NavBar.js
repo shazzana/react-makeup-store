@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import ItemSearchForm from './ItemSearchForm';
+import ItemSearchForm from '../ItemSearchForm';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
+import { Route, Link } from "react-router-dom";
 
 function NavBar() {
     
@@ -31,13 +32,17 @@ function NavBar() {
           </Navbar.Brand>
           <Nav className="me-auto">
             <OverlayTrigger
-            trigger="hover"
+            rootClose="false"
+            rootCloseEvent="click"
+            trigger="click"
             key="bottom"
             placement="bottom"
             overlay={
               <Popover id={`popover-positioned-bottom`}>
                 <Popover.Body>
-                <strong>Foundation</strong>
+                  <Link to="/foundation">
+                    <h1>Foundation</h1>
+                  </Link>
                 <br/>
                 <strong>Blusher</strong>
                 <br/>
@@ -48,7 +53,9 @@ function NavBar() {
               <Nav.Link href="#face">Face</Nav.Link>
             </OverlayTrigger>
             <OverlayTrigger
-            trigger="hover"
+            rootClose="false"
+            rootCloseEvent="click"
+            trigger="click"
             key="bottom"
             placement="bottom"
             overlay={
@@ -65,7 +72,9 @@ function NavBar() {
               <Nav.Link href="#eyes">Eyes</Nav.Link>
             </OverlayTrigger>
             <OverlayTrigger
-            trigger="hover"
+            rootClose="false"
+            rootCloseEvent="click"
+            trigger="click"
             key="bottom"
             placement="bottom"
             overlay={

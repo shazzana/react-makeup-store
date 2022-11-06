@@ -13,7 +13,7 @@ function HomeCarousel() {
       <Carousel.Item>
       <img
           className="d-block w-100"
-          src={require("../images/carousel-1.png")}
+          src={require("../../images/carousel-1.png")}
           alt="First slide"
           height="900"
 
@@ -22,7 +22,7 @@ function HomeCarousel() {
       <Carousel.Item>
       <img
           className="d-block w-100"
-          src={require("../images/carousel-2.png")}
+          src={require("../../images/carousel-2.png")}
           alt="Second slide"
           height="900"
         />
@@ -30,7 +30,7 @@ function HomeCarousel() {
       <Carousel.Item>
       <img
           className="d-block w-100"
-          src={require("../images/carousel-3.png")}
+          src={require("../../images/carousel-3.png")}
           alt="Third slide"
           height="900"
         />
