@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import Form from 'react-bootstrap/Form'
-import Button from 'react-bootstrap/Button'
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import './ItemSearchForm.css';
 
 function ItemSearchForm(props) {
     const [formInput, setFormInput] = useState("");
@@ -21,17 +22,16 @@ function ItemSearchForm(props) {
     return (
         <Form className="d-flex">
             <Form.Label>Search</Form.Label>
-            <Form.Select aria-label="Default select example">
+            <Form.Select className="search-dropdown" aria-label="Default select example">
                 <option>Choose a category</option>
                 <option value="product-name">Product name</option>
-                <option value="product-type">Product type</option>
                 <option value="product-brand">Product brand</option>
             </Form.Select>
             <Form.Control
             value={formInput}
             onChange={handleInput}
             type="search"
-            placeholder="e.g. lipstick"
+            placeholder="e.g. Colourpop"
             className="me-2"
             aria-label="Search"
             />

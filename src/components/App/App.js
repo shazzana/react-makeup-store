@@ -7,10 +7,11 @@ import HomeCarousel from '../HomeCarousel/HomeCarousel';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import ItemSearchForm from '../ItemSearchForm';
+import ItemSearchForm from '../ItemSearchForm/ItemSearchForm';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-import { Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
+import FoundationDisplay from '../FoundationDisplay/FoundationDisplay';
 
 function App() {
 
@@ -34,7 +35,7 @@ const handleSubmitFromChild = (val) => {
       <nav>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             Color Me Pretty
           </Navbar.Brand>
           <Nav className="me-auto">
@@ -57,7 +58,7 @@ const handleSubmitFromChild = (val) => {
                 </Popover.Body>
               </Popover>
             }>
-              <Nav.Link href="#face">Face</Nav.Link>
+              <Nav.Link>Face</Nav.Link>
             </OverlayTrigger>
             <OverlayTrigger
             rootClose="false"
@@ -76,7 +77,7 @@ const handleSubmitFromChild = (val) => {
                 </Popover.Body>
               </Popover>
             }>
-              <Nav.Link href="#eyes">Eyes</Nav.Link>
+              <Nav.Link>Eyes</Nav.Link>
             </OverlayTrigger>
             <OverlayTrigger
             rootClose="false"
@@ -93,7 +94,7 @@ const handleSubmitFromChild = (val) => {
                 </Popover.Body>
               </Popover>
             }>
-              <Nav.Link href="#lips">Lips</Nav.Link>
+              <Nav.Link>Lips</Nav.Link>
             </OverlayTrigger>
           </Nav>
           <ItemSearchForm onHandleSubmit={handleSubmitFromChild}/>
@@ -105,12 +106,13 @@ const handleSubmitFromChild = (val) => {
       <br/>
       <main>
         <HomeCarousel/>
+        <FoundationDisplay/>
         {/* <Routes>
           <Route exact path="/">
             <HomeCarousel/>
           </Route>
-          <Route path="/search-result">
-            <SearchResultDisplay/>
+          <Route path="/foundations">
+            <FoundationDisplay/>
           </Route>
         </Routes> */}
       </main>
