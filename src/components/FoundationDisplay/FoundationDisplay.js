@@ -9,7 +9,7 @@ function FoundationDisplay() {
   const [foundationSrc, setFoundationSrc] = useState([])
 
   const makeFoundationAPICall = async () => {
-    const foundationUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=foundation&limit=10`
+    const foundationUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=foundation`
     console.log(foundationUrl);
     const foundationResult = await fetch(foundationUrl)
     const foundationJson = await foundationResult.json();
@@ -17,8 +17,9 @@ function FoundationDisplay() {
     setFoundationSrc(foundationJson);
   }
 
+  useEffect(() => {
     makeFoundationAPICall();
-    console.log(foundationSrc);
+  }, [])
 
   const foundations = foundationSrc.slice(6,50).map((el) => {
 
@@ -55,7 +56,7 @@ function FoundationDisplay() {
     return (
       <Container fluid="true">
         <h1>Foundation</h1>
-        {/* <div>{foundations}</div> */}
+        <div>{foundations}</div>
       </Container>
     );
   }

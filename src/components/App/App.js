@@ -10,13 +10,13 @@ import Navbar from 'react-bootstrap/Navbar';
 import ItemSearchForm from '../ItemSearchForm/ItemSearchForm';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-import { Routes, Route, Link } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import FoundationDisplay from '../FoundationDisplay/FoundationDisplay';
 
 function App() {
 
   const makeSearchableAPICall = async (val) => {
-    const makeupUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${val}&limit=10`
+    const makeupUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${val}`
     console.log(makeupUrl);
     const result = await fetch(makeupUrl)
     const json = await result.json();
@@ -35,11 +35,12 @@ const handleSubmitFromChild = (val) => {
       <nav>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand>
+
+          <Navbar.Brand href="/">
             Color Me Pretty
           </Navbar.Brand>
           <Nav className="me-auto">
-            <OverlayTrigger
+            {/* <OverlayTrigger
             rootClose="false"
             rootCloseEvent="click"
             trigger="click"
@@ -59,7 +60,10 @@ const handleSubmitFromChild = (val) => {
               </Popover>
             }>
               <Nav.Link>Face</Nav.Link>
-            </OverlayTrigger>
+            </OverlayTrigger> */}
+             <Link to="/foundation">
+                    <strong>Foundation</strong>
+                  </Link>
             <OverlayTrigger
             rootClose="false"
             rootCloseEvent="click"
@@ -105,15 +109,13 @@ const handleSubmitFromChild = (val) => {
       <br/>
       <br/>
       <main>
-        <HomeCarousel/>
-        
-        {/* <FoundationDisplay/> */}
-          {/* <Route exact path="/">
-            <HomeCarousel/>
-          </Route> */}
-          <Route path="/foundations">
-            <FoundationDisplay/>
-          </Route>
+        {/* <FoundationDisplay /> */}
+        <Route exact path="/">
+          <HomeCarousel/>
+        </Route>
+        <Route path="/foundation">
+          <FoundationDisplay />
+        </Route>
       </main>
     </div>
   );
