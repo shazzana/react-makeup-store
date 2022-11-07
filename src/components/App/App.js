@@ -40,7 +40,7 @@ const handleSubmitFromChild = (val) => {
             Color Me Pretty
           </Navbar.Brand>
           <Nav className="me-auto">
-            {/* <OverlayTrigger
+            <OverlayTrigger
             rootClose="false"
             rootCloseEvent="click"
             trigger="click"
@@ -60,10 +60,7 @@ const handleSubmitFromChild = (val) => {
               </Popover>
             }>
               <Nav.Link>Face</Nav.Link>
-            </OverlayTrigger> */}
-             <Link to="/foundation">
-                    <strong>Foundation</strong>
-                  </Link>
+            </OverlayTrigger>
             <OverlayTrigger
             rootClose="false"
             rootCloseEvent="click"
