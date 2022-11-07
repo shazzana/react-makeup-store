@@ -106,6 +106,7 @@ const handleSubmitFromChild = (val) => {
       <br/>
       <main>
         <HomeCarousel/>
+        
         {/* <FoundationDisplay/> */}
           {/* <Route exact path="/">
             <HomeCarousel/>
