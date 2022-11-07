@@ -55,7 +55,7 @@ function FoundationDisplay() {
     return (
       <Container fluid="true">
         <h1>Foundation</h1>
-        <div>{foundations}</div>
+        {/* <div>{foundations}</div> */}
       </Container>
     );
   }

@@ -106,15 +106,13 @@ const handleSubmitFromChild = (val) => {
       <br/>
       <main>
         <HomeCarousel/>
-        <FoundationDisplay/>
-        {/* <Routes>
-          <Route exact path="/">
+        {/* <FoundationDisplay/> */}
+          {/* <Route exact path="/">
             <HomeCarousel/>
-          </Route>
+          </Route> */}
           <Route path="/foundations">
             <FoundationDisplay/>
           </Route>
-        </Routes> */}
       </main>
     </div>
   );
