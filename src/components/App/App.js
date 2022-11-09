@@ -39,14 +39,11 @@ const handleSubmitFromChild = (val) => {
       <nav>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Nav.Link>
-            <Link to="/foundation">
-              Foundation
-            </Link>
-          </Nav.Link>
-          <Navbar.Brand href="/">
+          <Link to="/">
+          <Navbar.Brand>
             Color Me Pretty
           </Navbar.Brand>
+          </Link>
           <Nav className="me-auto">
             <OverlayTrigger
             rootClose="false"
@@ -67,11 +64,11 @@ const handleSubmitFromChild = (val) => {
                 </Popover.Body>
               </Popover>
             }>
+              <Link to="/foundation">
               <Nav.Link>
-                <Link to="/foundation">
                 Face
-                </Link>
               </Nav.Link>
+              </Link>
             </OverlayTrigger>
             <OverlayTrigger
             rootClose="false"
