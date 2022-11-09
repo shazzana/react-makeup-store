@@ -12,15 +12,19 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { Route, Link } from "react-router-dom";
 import FoundationDisplay from '../FoundationDisplay/FoundationDisplay';
+import SearchResultDisplay from '../SearchResultDisplay/SearchResultDisplay';
 
 function App() {
 
+  const [searchResultSrc, setSearchResultSrc] = useState([])
+
   const makeSearchableAPICall = async (val) => {
-    const makeupUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${val}`
+    const makeupUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${val}`
     console.log(makeupUrl);
     const result = await fetch(makeupUrl)
     const json = await result.json();
     console.log(json);
+    setSearchResultSrc(json);
 }
 
 const handleSubmitFromChild = (val) => {
@@ -35,7 +39,11 @@ const handleSubmitFromChild = (val) => {
       <nav>
       <Navbar bg="dark" variant="dark">
         <Container>
-
+          <Nav.Link>
+            <Link to="/foundation">
+              Foundation
+            </Link>
+          </Nav.Link>
           <Navbar.Brand href="/">
             Color Me Pretty
           </Navbar.Brand>
@@ -49,9 +57,9 @@ const handleSubmitFromChild = (val) => {
             overlay={
               <Popover id={`popover-positioned-bottom`}>
                 <Popover.Body>
-                  <Link to="/foundation">
+                  {/* <Link to="/foundation">
                     <strong>Foundation</strong>
-                  </Link>
+                  </Link> */}
                 <br/>
                 <strong>Blusher</strong>
                 <br/>
@@ -59,7 +67,11 @@ const handleSubmitFromChild = (val) => {
                 </Popover.Body>
               </Popover>
             }>
-              <Nav.Link>Face</Nav.Link>
+              <Nav.Link>
+                <Link to="/foundation">
+                Face
+                </Link>
+              </Nav.Link>
             </OverlayTrigger>
             <OverlayTrigger
             rootClose="false"
@@ -106,6 +118,7 @@ const handleSubmitFromChild = (val) => {
       <br/>
       <br/>
       <main>
+      <SearchResultDisplay resultSrc={searchResultSrc}/>
         {/* <FoundationDisplay /> */}
         <Route exact path="/">
           <HomeCarousel/>
@@ -113,6 +126,9 @@ const handleSubmitFromChild = (val) => {
         <Route path="/foundation">
           <FoundationDisplay />
         </Route>
+        {/* <Route path="/searchresults">
+          <ItemSearchForm resultSrc={searchResultSrc}/>
+        </Route> */}
       </main>
     </div>
   );
