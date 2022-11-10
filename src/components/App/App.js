@@ -16,21 +16,11 @@ import SearchResultDisplay from '../SearchResultDisplay/SearchResultDisplay';
 
 function App() {
   
-  const [cat, setCat] = useState("name");
-  const [searchResultSrc, setSearchResultSrc] = useState([])
-
-  const makeSearchableAPICall = async (val) => {
-    const makeupUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?${cat}=${val}`
-    console.log(makeupUrl);
-    const result = await fetch(makeupUrl)
-    const json = await result.json();
-    console.log(json);
-    setSearchResultSrc(json);
-}
+  const [cat, setCat] = useState("name");  
 
 const handleSubmitFromChild = (val) => {
     console.log('This is from parent:' + val);
-    makeSearchableAPICall(val);
+    // makeSearchableAPICall(val);
     // Here we receive "val"
     // We want to make API call that will fetch search results
 }
@@ -107,8 +97,8 @@ const handleSubmitFromChild = (val) => {
             }>
               <Nav.Link>Lips</Nav.Link>
             </OverlayTrigger>
-          </Nav>
-          <ItemSearchForm setCategory={setCat} onHandleSubmit={handleSubmitFromChild}/>
+          </Nav>          
+          <ItemSearchForm />
         </Container>
       </Navbar>
       </nav>
@@ -116,7 +106,7 @@ const handleSubmitFromChild = (val) => {
       <br/>
       <br/>
       <main>
-      <SearchResultDisplay resultSrc={searchResultSrc}/>
+      
         {/* <FoundationDisplay /> */}
         <Route exact path="/">
           <HomeCarousel/>
@@ -124,12 +114,28 @@ const handleSubmitFromChild = (val) => {
         <Route path="/foundation">
           <FoundationDisplay />
         </Route>
-        {/* <Route path="/searchresults">
-          <ItemSearchForm resultSrc={searchResultSrc}/>
-        </Route> */}
+        <Route path="/searchresults/:cat/:val">
+          <SearchResultDisplay/>
+        </Route>
       </main>
     </div>
   );
 }
 
 export default App;
+
+/*
+
+  1. Move <SearchResultDisplay> into /searchresult routing
+
+  2. Move state:searchResultSrc into <SearchResultDisplay>
+
+  3. Pass category (cat) and search term (val) into <SearchResultDisplay>
+  
+  4. SearchResultDisplay will call the API using the cat and val
+
+  5. When data is fetched, display in self component
+
+  6. <ItemSearchForm> on click simply push useHistory
+
+*/
