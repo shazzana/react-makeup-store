@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-// import './BronzerDisplay.css';
+// import './BlusherDisplay.css';
 
-function BronzerDisplay() {
+function BlusherDisplay() {
 
-  const [bronzerSrc, setBronzerSrc] = useState([])
+  const [blusherSrc, setBlusherSrc] = useState([])
 
-  const makeBronzerAPICall = async () => {
-    const bronzerUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=bronzer`
-    console.log(bronzerUrl);
-    const bronzerResult = await fetch(bronzerUrl)
-    const bronzerJson = await bronzerResult.json();
-    console.log('Bronzer Array: ', bronzerJson);
-    setBronzerSrc(bronzerJson);
+  const makeBlusherAPICall = async () => {
+    const blusherUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=blush`
+    console.log(blusherUrl);
+    const blusherResult = await fetch(blusherUrl)
+    const blusherJson = await blusherResult.json();
+    console.log('Blusher Array: ', blusherJson);
+    setBlusherSrc(blusherJson);
   }
 
   useEffect(() => {
-    makeBronzerAPICall();
+    makeBlusherAPICall();
   }, [])
 
-  const bronzers = bronzerSrc.map((el) => {
+  const blushers = blusherSrc.slice(4,78).map((el) => {
 
     return (
       <Card className="card" style={{ width: '18rem' }}>
@@ -36,12 +36,13 @@ function BronzerDisplay() {
     )
   })
 
+
     return (
       <Container fluid="true">
-        <h1>Bronzer</h1>
-        <div>{bronzers}</div>
+        <h1>Blusher</h1>
+        <div>{blushers}</div>
       </Container>
     );
   }
   
-  export default BronzerDisplay;
+  export default BlusherDisplay;

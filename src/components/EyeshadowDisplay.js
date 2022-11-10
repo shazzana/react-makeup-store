@@ -2,26 +2,25 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-// import './EyelinerDisplay.css';
 
-function EyelinerDisplay() {
+function EyeshadowDisplay() {
 
-  const [eyelinerSrc, setEyelinerSrc] = useState([])
+  const [eyeshadowSrc, setEyeshadowSrc] = useState([])
 
-  const makeEyelinerAPICall = async () => {
-    const eyelinerUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyeliner`
-    console.log(eyelinerUrl);
-    const eyelinerResult = await fetch(eyelinerUrl)
-    const eyelinerJson = await eyelinerResult.json();
-    console.log('Eyeliner Array: ', eyelinerJson);
-    setEyelinerSrc(eyelinerJson);
+  const makeEyeshadowAPICall = async () => {
+    const eyeshadowUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyeshadow`
+    console.log(eyeshadowUrl);
+    const eyeshadowResult = await fetch(eyeshadowUrl)
+    const eyeshadowJson = await eyeshadowResult.json();
+    console.log('Eyeshadow Array: ', eyeshadowJson);
+    setEyeshadowSrc(eyeshadowJson);
   }
 
   useEffect(() => {
-    makeEyelinerAPICall();
+    makeEyeshadowAPICall();
   }, [])
 
-  const eyeliners = eyelinerSrc.slice(6,50).map((el) => {
+  const eyeshadows = eyeshadowSrc.slice(12,86).map((el) => {
 
     return (
       <Card className="card" style={{ width: '18rem' }}>
@@ -38,10 +37,10 @@ function EyelinerDisplay() {
 
     return (
       <Container fluid="true">
-        <h1>Eyeliner</h1>
-        <div>{eyeliners}</div>
+        <h1>Eyeshadow</h1>
+        <div>{eyeshadows}</div>
       </Container>
     );
   }
   
-  export default EyelinerDisplay;
+  export default EyeshadowDisplay;

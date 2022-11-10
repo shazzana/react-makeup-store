@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-// import './BlusherDisplay.css';
+// import './LiplinerDisplay.css';
 
-function BlusherDisplay() {
+function LiplinerDisplay() {
 
-  const [blusherSrc, setBlusherSrc] = useState([])
+  const [liplinerSrc, setLiplinerSrc] = useState([])
 
-  const makeBlusherAPICall = async () => {
-    const blusherUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=blush`
-    console.log(blusherUrl);
-    const blusherResult = await fetch(blusherUrl)
-    const blusherJson = await blusherResult.json();
-    console.log('Blusher Array: ', blusherJson);
-    setBlusherSrc(blusherJson);
+  const makeLiplinerAPICall = async () => {
+    const liplinerUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=lip liner`
+    console.log(liplinerUrl);
+    const liplinerResult = await fetch(liplinerUrl)
+    const liplinerJson = await liplinerResult.json();
+    console.log('Lipliner Array: ', liplinerJson);
+    setLiplinerSrc(liplinerJson);
   }
 
   useEffect(() => {
-    makeBlusherAPICall();
+    makeLiplinerAPICall();
   }, [])
 
-  const blushers = blusherSrc.map((el) => {
+  const lipliners = liplinerSrc.slice(2,29).map((el) => {
 
     return (
       <Card className="card" style={{ width: '18rem' }}>
@@ -36,13 +36,12 @@ function BlusherDisplay() {
     )
   })
 
-
     return (
       <Container fluid="true">
-        <h1>Blusher</h1>
-        <div>{blushers}</div>
+        <h1>Lipliner</h1>
+        <div>{lipliners}</div>
       </Container>
     );
   }
   
-  export default BlusherDisplay;
+  export default LiplinerDisplay;

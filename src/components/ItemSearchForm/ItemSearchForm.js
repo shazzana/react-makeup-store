@@ -5,6 +5,7 @@ import './ItemSearchForm.css';
 
 function ItemSearchForm(props) {
     const [formInput, setFormInput] = useState("");
+
     
     const handleInput = (event) => {
         console.log(event.target.value)

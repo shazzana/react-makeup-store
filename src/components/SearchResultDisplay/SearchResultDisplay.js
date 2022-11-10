@@ -26,7 +26,6 @@ function SearchResultDisplay (props) {
 
     return (
         <Container fluid="true">
-          <h1>Search Results</h1>
           <div>{results}</div>
         </Container>
       );

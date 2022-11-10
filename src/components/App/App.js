@@ -12,6 +12,13 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
 import { Route, Link } from "react-router-dom";
 import FoundationDisplay from '../FoundationDisplay/FoundationDisplay';
+import BronzerDisplay from '../BronzerDisplay';
+import BlusherDisplay from '../BlusherDisplay';
+import EyebrowDisplay from '../EyebrowDisplay';
+import EyelinerDisplay from '../EyelinerDisplay';
+import EyeshadowDisplay from '../EyeshadowDisplay';
+import LipstickDisplay from '../LipstickDisplay';
+import LiplinerDisplay from '../LiplinerDisplay';
 import SearchResultDisplay from '../SearchResultDisplay/SearchResultDisplay';
 
 function App() {
@@ -39,10 +46,11 @@ const handleSubmitFromChild = (val) => {
     <div>
       <nav>
       <Navbar bg="dark" variant="dark">
+
         <Container>
           <Link to="/">
           <Navbar.Brand>
-            Color Me Pretty
+             Color Me Pretty
           </Navbar.Brand>
           </Link>
           <Nav className="me-auto">
@@ -58,18 +66,20 @@ const handleSubmitFromChild = (val) => {
                   <Link to="/foundation">
                     <strong>Foundation</strong>
                   </Link>
-                <br/>
-                <strong>Blusher</strong>
-                <br/>
-                <strong>Bronzer</strong>
+                  <br/>
+                  <Link to="/blusher">
+                    <strong>Blusher</strong>
+                  </Link>
+                  <br/>
+                  <Link to="/bronzer">
+                    <strong>Bronzer</strong>
+                  </Link>
                 </Popover.Body>
               </Popover>
             }>
-              <Link to="/foundation">
               <Nav.Link>
                 Face
               </Nav.Link>
-              </Link>
             </OverlayTrigger>
             <OverlayTrigger
             rootClose="false"
@@ -80,11 +90,17 @@ const handleSubmitFromChild = (val) => {
             overlay={
               <Popover id={`popover-positioned-bottom`}>
                 <Popover.Body>
-                <strong>Eyeshadow</strong>
-                <br/>
-                <strong>Eyebrow</strong>
-                <br/>
-                <strong>Eyeliner</strong>
+                  <Link to="/eyeshadow">
+                    <strong>Eyeshadow</strong>
+                  </Link>
+                  <br/>
+                  <Link to="/eyebrow">
+                    <strong>Eyebrow</strong>
+                  </Link>
+                  <br/>
+                  <Link to="/eyeliner">
+                    <strong>Eyeliner</strong>
+                  </Link>
                 </Popover.Body>
               </Popover>
             }>
@@ -99,14 +115,19 @@ const handleSubmitFromChild = (val) => {
             overlay={
               <Popover id={`popover-positioned-bottom`}>
                 <Popover.Body>
-                <strong>Lipstick</strong>
-                <br/>
-                <strong>Lipliner</strong>
+                  <Link to="/lipstick">
+                    <strong>Lipstick</strong>
+                  </Link>
+                  <br/>
+                  <Link to="/lipliner">
+                    <strong>Lipliner</strong>
+                  </Link>
                 </Popover.Body>
               </Popover>
             }>
               <Nav.Link>Lips</Nav.Link>
             </OverlayTrigger>
+            
           </Nav>
           <ItemSearchForm setCategory={setCat} onHandleSubmit={handleSubmitFromChild}/>
         </Container>
@@ -116,13 +137,37 @@ const handleSubmitFromChild = (val) => {
       <br/>
       <br/>
       <main>
-      <SearchResultDisplay resultSrc={searchResultSrc}/>
+        <SearchResultDisplay resultSrc={searchResultSrc}/>
         {/* <FoundationDisplay /> */}
         <Route exact path="/">
           <HomeCarousel/>
         </Route>
         <Route path="/foundation">
           <FoundationDisplay />
+        </Route>
+        <Route path="/blusher">
+          <BlusherDisplay />
+        </Route>
+        <Route path="/bronzer">
+          <BronzerDisplay />
+        </Route>
+        <Route path="/eyeshadow">
+          <EyeshadowDisplay />
+        </Route>
+        <Route path="/eyebrow">
+          <EyebrowDisplay />
+        </Route>
+        <Route path="/eyeliner">
+          <EyelinerDisplay />
+        </Route>
+        <Route path="/lipstick">
+          <LipstickDisplay />
+        </Route>
+        <Route path="/lipliner">
+          <LiplinerDisplay />
+        </Route>
+        <Route path="/search">
+          <ItemSearchForm setCategory={setCat} onHandleSubmit={handleSubmitFromChild}/>
         </Route>
         {/* <Route path="/searchresults">
           <ItemSearchForm resultSrc={searchResultSrc}/>

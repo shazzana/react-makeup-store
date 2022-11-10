@@ -2,26 +2,26 @@ import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import './LipstickDisplay.css';
+// import './EyebrowDisplay.css';
 
-function LipstickDisplay() {
+function EyebrowDisplay() {
 
-  const [lipstickSrc, setLipstickSrc] = useState([])
+  const [eyebrowSrc, setEyebrowSrc] = useState([])
 
-  const makeLipstickAPICall = async () => {
-    const lipstickUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=lipstick`
-    console.log(lipstickUrl);
-    const lipstickResult = await fetch(lipstickUrl)
-    const lipstickJson = await lipstickResult.json();
-    console.log('Lipstick Array: ', lipstickJson);
-    setLipstickSrc(lipstickJson);
+  const makeEyebrowAPICall = async () => {
+    const eyebrowUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=eyebrow`
+    console.log(eyebrowUrl);
+    const eyebrowResult = await fetch(eyebrowUrl)
+    const eyebrowJson = await eyebrowResult.json();
+    console.log('Eyebrow Array: ', eyebrowJson);
+    setEyebrowSrc(eyebrowJson);
   }
 
   useEffect(() => {
-    makeLipstickAPICall();
+    makeEyebrowAPICall();
   }, [])
 
-  const lipsticks = lipstickSrc.map((el) => {
+  const eyebrows = eyebrowSrc.slice(1,49).map((el) => {
 
     return (
       <Card className="card" style={{ width: '18rem' }}>
@@ -38,10 +38,10 @@ function LipstickDisplay() {
 
     return (
       <Container fluid="true">
-        <h1>Lipstick</h1>
-        <div>{lipsticks}</div>
+        <h1>Eyebrow</h1>
+        <div>{eyebrows}</div>
       </Container>
     );
   }
   
-  export default LipstickDisplay;
+  export default EyebrowDisplay;
