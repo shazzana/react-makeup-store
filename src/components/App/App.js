@@ -15,11 +15,12 @@ import FoundationDisplay from '../FoundationDisplay/FoundationDisplay';
 import SearchResultDisplay from '../SearchResultDisplay/SearchResultDisplay';
 
 function App() {
-
+  
+  const [cat, setCat] = useState("name");
   const [searchResultSrc, setSearchResultSrc] = useState([])
 
   const makeSearchableAPICall = async (val) => {
-    const makeupUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?brand=${val}`
+    const makeupUrl = `https://makeup-api.herokuapp.com/api/v1/products.json?${cat}=${val}`
     console.log(makeupUrl);
     const result = await fetch(makeupUrl)
     const json = await result.json();
@@ -54,9 +55,9 @@ const handleSubmitFromChild = (val) => {
             overlay={
               <Popover id={`popover-positioned-bottom`}>
                 <Popover.Body>
-                  {/* <Link to="/foundation">
+                  <Link to="/foundation">
                     <strong>Foundation</strong>
-                  </Link> */}
+                  </Link>
                 <br/>
                 <strong>Blusher</strong>
                 <br/>
@@ -107,7 +108,7 @@ const handleSubmitFromChild = (val) => {
               <Nav.Link>Lips</Nav.Link>
             </OverlayTrigger>
           </Nav>
-          <ItemSearchForm onHandleSubmit={handleSubmitFromChild}/>
+          <ItemSearchForm setCategory={setCat} onHandleSubmit={handleSubmitFromChild}/>
         </Container>
       </Navbar>
       </nav>

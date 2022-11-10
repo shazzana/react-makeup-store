@@ -19,13 +19,17 @@ function ItemSearchForm(props) {
         setFormInput("");
     }
 
+    const handleSelectChange = (e) => {        
+        props.setCategory(e.target.value);
+    }
+
     return (
         <Form className="d-flex">
             <Form.Label>Search</Form.Label>
-            <Form.Select className="search-dropdown" aria-label="Default select example">
+            <Form.Select className="search-dropdown" onChange={handleSelectChange} aria-label="Default select example">
                 <option>Choose a category</option>
-                <option value="product-name">Product name</option>
-                <option value="product-brand">Product brand</option>
+                <option value="name">Product name</option>
+                <option value="brand">Product brand</option>
             </Form.Select>
             <Form.Control
             value={formInput}
