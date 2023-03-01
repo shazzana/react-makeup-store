@@ -15,8 +15,7 @@ function HomeCarousel() {
           className="d-block w-100"
           src={require("../../images/carousel-1.png")}
           alt="First slide"
-          height="900"
-
+          
         />
       </Carousel.Item>
       <Carousel.Item>
@@ -24,7 +23,7 @@ function HomeCarousel() {
           className="d-block w-100"
           src={require("../../images/carousel-2.png")}
           alt="Second slide"
-          height="900"
+          // height="900"
         />
       </Carousel.Item>
       <Carousel.Item>
@@ -32,7 +31,7 @@ function HomeCarousel() {
           className="d-block w-100"
           src={require("../../images/carousel-3.png")}
           alt="Third slide"
-          height="900"
+          // height="900"
         />
       </Carousel.Item>
     </Carousel>
